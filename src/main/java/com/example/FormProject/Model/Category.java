@@ -11,7 +11,7 @@ public class Category {
 
     @Id
     private String id;
-    private String categoryName;
+    private String name;
     private long price;
     private long weight;
 

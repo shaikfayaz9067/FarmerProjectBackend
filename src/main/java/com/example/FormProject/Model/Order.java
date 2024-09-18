@@ -20,6 +20,7 @@ public class Order {
     private Transport transport;
     private long totalAmountAllProducts;
     private Date purchaseDate;
+    private Address address;
 
 
 }
