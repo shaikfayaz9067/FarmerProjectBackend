@@ -21,8 +21,8 @@ public class Product {
     private long totalPrice; // Additional field
 
     // Getter and setter for totalPrice
-    public long getTotalPrice() {
-        return price * quantity;
-    }
+    // public long getTotalPrice() {
+    //     return price * quantity;
+    // }
     
 }
