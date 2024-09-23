@@ -17,10 +17,8 @@ public class Order {
     private String farmerName;
     private Long phoneNumber;
     private List<Product> products;
-    private Transport transport;
+    private List<Transport> transport;  // Changed from Transport to List<Transport>
     private long totalAmountAllProducts;
     private Date purchaseDate;
-    private Address address;
-
-
+    // private Address address;
 }

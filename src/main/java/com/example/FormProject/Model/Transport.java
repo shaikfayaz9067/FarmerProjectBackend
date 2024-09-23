@@ -9,10 +9,14 @@ import lombok.Data;
 @Document(collection = "transport")
 public class Transport {
     @Id
-    private String id;
-    private String vehicleType;
-    private String vehicleNumber;
-    private String vehiclePhoto;
-    private Long driverPhoneNumber;
-
+    private String id;                     // Optional ID
+    private String vehicleType;             // Type of vehicle
+    private String vehicleNumber;           // Vehicle registration number
+    private String vehiclePhoto;            // Photo URL or path as a String
+    private Long driverPhoneNumber;         // Driver's phone number
+    private String driverName;              // Driver's name
+    private int capacity;                   // Vehicle capacity
+    private double transportAmount;         // Amount for transport
+    private Double loadingAmount;           // Amount related to loading
+    private Double unloadingAmount;         // Amount related to unloading
 }
