@@ -14,7 +14,7 @@ public class Category {
     private String id;
     private String name;
     private long weight;
-    private List<Subcategory> subcategories; 
+
 
     
 }

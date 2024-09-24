@@ -16,10 +16,12 @@ public class Product {
     @Id
     private String id;
     private Category category;
+    private Subcategory subcategory;
     private int quantity; 
     private long price; 
     private long totalPrice; // Additional field
 
-
+    public Product() {
+    }
     
 }

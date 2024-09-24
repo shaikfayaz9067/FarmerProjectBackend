@@ -18,5 +18,10 @@ public class Transport {
     private int capacity;                   // Vehicle capacity
     private double transportAmount;         // Amount for transport
     private Double loadingAmount;           // Amount related to loading
-    private Double unloadingAmount;         // Amount related to unloading
+    private Double unloadingAmount; // Amount related to unloading
+    private int weight;
+    private boolean weightExceeded;
+
+    public Transport() {
+    }
 }

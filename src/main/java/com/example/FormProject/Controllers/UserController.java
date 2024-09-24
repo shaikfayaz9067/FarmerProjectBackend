@@ -49,4 +49,17 @@ public class UserController {
         userService.deleteUser(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+      @GetMapping("/role/{role}")
+    public ResponseEntity<List<User>> getUsersByRoleGet(@PathVariable String role) {
+        List<User> usersByRole = userService.getUsersByRole(role);
+        return new ResponseEntity<>(usersByRole, HttpStatus.OK);
+    }
+
+    // POST mapping to get users by role from the request body
+    @PostMapping("/role")
+    public ResponseEntity<List<User>> getUsersByRolePost(@RequestBody String role) {
+        List<User> usersByRole = userService.getUsersByRole(role);
+        return new ResponseEntity<>(usersByRole, HttpStatus.OK);
+    }
 }

@@ -10,8 +10,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.FormProject.Model.Product;
+import com.example.FormProject.Model.Subcategory;
 import com.example.FormProject.Model.Category;
 import com.example.FormProject.Services.ProductService;
+import com.example.FormProject.Services.SubCategoryService;
 import com.example.FormProject.Services.CategoryService;
 
 @RestController
@@ -24,6 +26,9 @@ public class ProductController {
     
     @Autowired
     private CategoryService categoryService;
+
+    @Autowired
+    private SubCategoryService subCategoryService;
 
     private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
 
@@ -63,5 +68,19 @@ public class ProductController {
     public ResponseEntity<List<Category>> getCategories() {
         List<Category> categories = categoryService.getAllCategories();
         return new ResponseEntity<>(categories, HttpStatus.OK);
+    }
+     @GetMapping("/categories/subcategories")
+     public ResponseEntity<List<Subcategory>> getSubCategories() {
+         List<Subcategory> subcategories = subCategoryService.getAllCategories();
+         return new ResponseEntity<>(subcategories, HttpStatus.OK);
+     }
+    
+     @PostMapping("/categories/subcategories")
+    public ResponseEntity<String> addCategories(@RequestBody Subcategory subcategory){
+        logger.info("the Category is added",subcategory);
+        subCategoryService.save(subcategory);
+
+        return new ResponseEntity<>("The subCategery is added",HttpStatus.CREATED);
+        
     }
 }

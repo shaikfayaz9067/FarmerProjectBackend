@@ -43,4 +43,8 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(String id) {
         userRepository.deleteById(id);
     }
+
+     public List<User> getUsersByRole(String role) {
+        return userRepository.findByRole(role); // This should be a method in your UserRepository
+    }
 }

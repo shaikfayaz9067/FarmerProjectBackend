@@ -1,5 +1,6 @@
 package com.example.FormProject.Model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -16,9 +17,12 @@ public class Order {
     private String id;
     private String farmerName;
     private Long phoneNumber;
-    private List<Product> products;
-    private List<Transport> transport;  // Changed from Transport to List<Transport>
+    private List<Product> products=new ArrayList<>();
+    private List<Transport> transport = new ArrayList<>();  // Changed from Transport to List<Transport>
     private long totalAmountAllProducts;
     private Date purchaseDate;
+    private String purchaseLocation;
+    private boolean amountStatus;
+    private String bagtype;
     // private Address address;
 }
