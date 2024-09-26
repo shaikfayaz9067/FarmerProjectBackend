@@ -20,6 +20,7 @@ public class Transport {
     private Double loadingAmount;           // Amount related to loading
     private Double unloadingAmount; // Amount related to unloading
     private int weight;
+    private int waybill;
     private boolean weightExceeded;
 
     public Transport() {

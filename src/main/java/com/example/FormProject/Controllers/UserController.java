@@ -57,9 +57,9 @@ public class UserController {
     }
 
     // POST mapping to get users by role from the request body
-    @PostMapping("/role")
-    public ResponseEntity<List<User>> getUsersByRolePost(@RequestBody String role) {
-        List<User> usersByRole = userService.getUsersByRole(role);
-        return new ResponseEntity<>(usersByRole, HttpStatus.OK);
-    }
+//     @PostMapping("/role")
+//     public ResponseEntity<List<User>> createtUsersByRole(@RequestBody String role) {
+//         List<User> usersByRole = userService.getUsersByRole(role);
+//         return new ResponseEntity<>(usersByRole, HttpStatus.OK);
+//     }
 }
