@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,11 +20,27 @@ public class TransportController {
     @Autowired
     private TransportService transportService;
 
-    @PostMapping
-    public ResponseEntity<Transport> createTransport(@RequestBody Transport transport) {
-        Transport createdTransport = transportService.createTransport(transport);
-        return new ResponseEntity<>(createdTransport, HttpStatus.CREATED);
+   @PostMapping
+    public ResponseEntity<Transport> createTransport(
+            @RequestParam("vehiclePhoto") MultipartFile vehiclePhoto) {
+        Transport transport = new Transport();
+
+        try {
+            // Store the image as a byte array
+            transport.setVehiclePhoto(vehiclePhoto.getBytes());
+
+            // Set the content type of the uploaded image
+            String contentType = vehiclePhoto.getContentType(); // This will be "image/jpeg", "image/png", etc.
+            transport.setVehiclePhotoContentType(contentType);
+
+            // Save the transport object in the database
+            Transport createdTransport = transportService.createTransport(transport);
+            return new ResponseEntity<>(createdTransport, HttpStatus.CREATED);
+        } catch (IOException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
+
 
     @GetMapping
     public ResponseEntity<List<Transport>> getAllTransports() {
