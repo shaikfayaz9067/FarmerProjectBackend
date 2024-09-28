@@ -24,5 +24,6 @@ public class Order {
     private String purchaseLocation;
     private boolean amountStatus;
     private String bagtype;
-    // private Address address;
+    private String paymentMode;
+
 }
