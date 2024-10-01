@@ -1,4 +1,4 @@
-package com.example.FormProject.Services;
+package com.example.FormProject.Services.transport;
 
 import com.example.FormProject.Model.Transport;
 import com.example.FormProject.Repository.TransportRepository;

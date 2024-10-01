@@ -15,7 +15,7 @@ public class EProduct {
     private long price;
     private String category;
     private String color;
-    private String image;
+    private byte[] image;
     private String description;
     private int quantity;
     private Long productId; // Using Long instead of Number for compatibility with Java

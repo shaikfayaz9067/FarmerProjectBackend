@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/carts")
+@RequestMapping("/api/ecarts")
 @CrossOrigin("http://localhost:4200") // Adjust or remove based on your needs
 public class ECartController {
 

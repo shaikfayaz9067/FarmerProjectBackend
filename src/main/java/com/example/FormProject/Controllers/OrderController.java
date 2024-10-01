@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.FormProject.Model.Order;
-import com.example.FormProject.Services.OrderService;
+import com.example.FormProject.Services.order.OrderService;
 
 @RestController
 @RequestMapping("api/orders")

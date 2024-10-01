@@ -1,7 +1,8 @@
 package com.example.FormProject.Controllers;
 
 import com.example.FormProject.Model.Transport;
-import com.example.FormProject.Services.TransportService;
+import com.example.FormProject.Services.transport.TransportService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

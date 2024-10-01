@@ -1,7 +1,8 @@
-package com.example.FormProject.Services;
+package com.example.FormProject.Services.ecart;
 
 import com.example.FormProject.Model.ECart;
 import com.example.FormProject.Repository.ECartRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

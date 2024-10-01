@@ -1,7 +1,8 @@
 package com.example.FormProject.Controllers;
 
 import com.example.FormProject.Model.User;
-import com.example.FormProject.Services.UserService;
+import com.example.FormProject.Services.user.UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

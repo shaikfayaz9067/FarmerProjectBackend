@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.example.FormProject.Model.ProcureUser;
 import com.example.FormProject.Model.User;
-import com.example.FormProject.Services.UserService;
+import com.example.FormProject.Services.user.UserService;
 
 public class ProcurementUserController {
 

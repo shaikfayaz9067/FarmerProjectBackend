@@ -1,4 +1,4 @@
-package com.example.FormProject.Services;
+package com.example.FormProject.Services.product;
 
 import java.util.List;
 

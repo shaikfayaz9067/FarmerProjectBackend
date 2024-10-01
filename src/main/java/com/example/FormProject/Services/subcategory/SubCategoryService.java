@@ -1,4 +1,4 @@
-package com.example.FormProject.Services;
+package com.example.FormProject.Services.subcategory;
 
 import com.example.FormProject.Model.Subcategory;
 

@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import com.example.FormProject.Model.Product;
 import com.example.FormProject.Model.Subcategory;
 import com.example.FormProject.Model.Category;
-import com.example.FormProject.Services.ProductService;
-import com.example.FormProject.Services.SubCategoryService;
-import com.example.FormProject.Services.CategoryService;
+import com.example.FormProject.Services.category.CategoryService;
+import com.example.FormProject.Services.product.ProductService;
+import com.example.FormProject.Services.subcategory.SubCategoryService;
 
 @RestController
 @RequestMapping("/api/products")

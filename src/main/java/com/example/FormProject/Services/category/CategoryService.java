@@ -1,4 +1,4 @@
-package com.example.FormProject.Services;
+package com.example.FormProject.Services.category;
 import com.example.FormProject.Model.Category;
 
 import java.util.List;

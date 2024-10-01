@@ -1,4 +1,4 @@
-package com.example.FormProject.Services;
+package com.example.FormProject.Services.user;
 
 import com.example.FormProject.Model.User;
 import java.util.List;

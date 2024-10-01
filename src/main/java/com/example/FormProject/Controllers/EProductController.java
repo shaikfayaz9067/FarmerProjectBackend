@@ -11,8 +11,8 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/products")
-@CrossOrigin("http://localhost:4200") // Adjust or remove based on your needs
+@RequestMapping("/api/eproducts")
+@CrossOrigin({"http://localhost:4200","http://localhost:5000"}) // Adjust or remove based on your needs
 public class EProductController {
 
     @Autowired

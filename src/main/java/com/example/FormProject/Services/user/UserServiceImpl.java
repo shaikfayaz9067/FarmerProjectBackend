@@ -1,7 +1,8 @@
-package com.example.FormProject.Services;
+package com.example.FormProject.Services.user;
 
 import com.example.FormProject.Model.User;
 import com.example.FormProject.Repository.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
