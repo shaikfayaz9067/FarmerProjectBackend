@@ -12,8 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/eorders")
-@CrossOrigin("http://localhost:4200") // Adjust or remove based on your needs
-public class EOrderController {
+@CrossOrigin({"http://localhost:4200","http://localhost:5000","http://localhost:3000"}) public class EOrderController {
 
     @Autowired
     private EOrderService orderService;

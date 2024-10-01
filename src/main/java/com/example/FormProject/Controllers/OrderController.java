@@ -19,7 +19,7 @@ import com.example.FormProject.Services.order.OrderService;
 
 @RestController
 @RequestMapping("api/orders")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin({ "http://localhost:4200", "http://localhost:5000", "http://localhost:3000" })
 public class OrderController {
 
     @Autowired

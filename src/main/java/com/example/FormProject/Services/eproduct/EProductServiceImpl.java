@@ -5,8 +5,10 @@ import com.example.FormProject.Repository.EProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class EProductServiceImpl implements EProductService {
@@ -38,6 +40,14 @@ public class EProductServiceImpl implements EProductService {
             return null; // Or throw an exception
         }
     }
+    
+    @Override
+    public List<EProduct> createProducts(List<EProduct> products) {
+        return products.stream()
+                .map(productRepository::save) // Save each product individually
+                .collect(Collectors.toList());
+    }
+    
 
     @Override
     public void deleteProduct(String id) {

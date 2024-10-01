@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/ecarts")
-@CrossOrigin("http://localhost:4200") // Adjust or remove based on your needs
+@CrossOrigin({"http://localhost:4200","http://localhost:5000","http://localhost:3000"})  // Adjust or remove based on your needs
 public class ECartController {
 
     @Autowired

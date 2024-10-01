@@ -18,7 +18,7 @@ import com.example.FormProject.Services.subcategory.SubCategoryService;
 
 @RestController
 @RequestMapping("/api/products")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin({ "http://localhost:4200", "http://localhost:5000", "http://localhost:3000" })
 public class ProductController {
 
     @Autowired

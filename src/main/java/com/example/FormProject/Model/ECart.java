@@ -12,7 +12,7 @@ public class ECart {
     private long price;
     private String category;
     private String color;
-    private String image;
+    private byte[] image;
     private String description;
     // Using Long instead of Number for compatibility with Java
     private int quantity;

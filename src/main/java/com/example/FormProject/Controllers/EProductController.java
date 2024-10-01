@@ -12,41 +12,45 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/eproducts")
-@CrossOrigin({"http://localhost:4200","http://localhost:5000"}) // Adjust or remove based on your needs
-public class EProductController {
+@CrossOrigin({"http://localhost:4200","http://localhost:5000","http://localhost:3000"}) public class EProductController {
 
     @Autowired
-    private EProductService productService;
+    private EProductService eProductService;
 
     @PostMapping
     public ResponseEntity<EProduct> createProduct(@RequestBody EProduct product) {
-        EProduct createdProduct = productService.createProduct(product);
+        EProduct createdProduct = eProductService.createProduct(product);
         return new ResponseEntity<>(createdProduct, HttpStatus.CREATED);
     }
 
     @GetMapping
     public ResponseEntity<List<EProduct>> getAllProducts() {
-        List<EProduct> products = productService.getAllProducts();
+        List<EProduct> products = eProductService.getAllProducts();
         return new ResponseEntity<>(products, HttpStatus.OK);
+    }
+     @PostMapping("/bulk")
+    public ResponseEntity<List<EProduct>> createProducts(@RequestBody List<EProduct> products) {
+        List<EProduct> createdProducts = eProductService.createProducts(products);
+        return new ResponseEntity<>(createdProducts, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<EProduct> getProductById(@PathVariable String id) {
-        Optional<EProduct> product = productService.getProductById(id);
+        Optional<EProduct> product = eProductService.getProductById(id);
         return product.map(p -> new ResponseEntity<>(p, HttpStatus.OK))
                       .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<EProduct> updateProduct(@PathVariable String id, @RequestBody EProduct product) {
-        EProduct updatedProduct = productService.updateProduct(id, product);
+        EProduct updatedProduct = eProductService.updateProduct(id, product);
         return updatedProduct != null ? new ResponseEntity<>(updatedProduct, HttpStatus.OK)
                                       : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProduct(@PathVariable String id) {
-        productService.deleteProduct(id);
+        eProductService.deleteProduct(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
