@@ -9,9 +9,10 @@ import lombok.Data;
 public class EUser {
     @Id
     private String id;
-    private String name;
+    private String username;
     private String email;
     private String password;
+    private String phoneNumber;
     
     public EUser() {}
 }
