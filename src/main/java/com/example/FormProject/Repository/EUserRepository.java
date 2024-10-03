@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EUserRepository extends MongoRepository<EUser, String> {
     EUser findByEmail(String email);
+
+    EUser findByUsername(String username);
 }

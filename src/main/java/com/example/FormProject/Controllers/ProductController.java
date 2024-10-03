@@ -39,6 +39,12 @@ public class ProductController {
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
 
+    @PostMapping
+    public ResponseEntity<Product> createProduct(@RequestBody Product product) {
+        productService.createProduct(product);
+        return new ResponseEntity<>(product, HttpStatus.OK);
+    }
+
     // POST: Add a new product (called during checkout with a list of products)
     @PostMapping("/checkout")
     public ResponseEntity<Void> checkoutProducts(@RequestBody List<Product> products) {

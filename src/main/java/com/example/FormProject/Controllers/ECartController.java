@@ -13,24 +13,34 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/ecarts")
-@CrossOrigin({"http://localhost:4200","http://localhost:5000","http://localhost:3000"})  // Adjust or remove based on your needs
+@CrossOrigin({"http://localhost:4200","http://localhost:5000","http://localhost:3000"})
 public class ECartController {
 
     @Autowired
     private ECartService cartService;
 
+    // Add a product to the cart
     @PostMapping
-    public ResponseEntity<ECart> createCart(@RequestBody ECart cart) {
-        ECart createdCart = cartService.createCart(cart);
+    public ResponseEntity<ECart> addToCart(@RequestBody ECart cart) {
+        ECart createdCart = cartService.addToCart(cart);
         return new ResponseEntity<>(createdCart, HttpStatus.CREATED);
     }
 
+    // Get all cart items (global)
     @GetMapping
     public ResponseEntity<List<ECart>> getAllCarts() {
         List<ECart> carts = cartService.getAllCarts();
         return new ResponseEntity<>(carts, HttpStatus.OK);
     }
 
+    // Get cart items by user ID
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<ECart>> getCartsByUserId(@PathVariable String userId) {
+        List<ECart> userCarts = cartService.getCartsByUserId(userId);
+        return new ResponseEntity<>(userCarts, HttpStatus.OK);
+    }
+
+    // Get a specific cart item by cart ID
     @GetMapping("/{id}")
     public ResponseEntity<ECart> getCartById(@PathVariable String id) {
         Optional<ECart> cart = cartService.getCartById(id);
@@ -38,6 +48,7 @@ public class ECartController {
                    .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+    // Update a cart item
     @PutMapping("/{id}")
     public ResponseEntity<ECart> updateCart(@PathVariable String id, @RequestBody ECart cart) {
         ECart updatedCart = cartService.updateCart(id, cart);
@@ -45,15 +56,10 @@ public class ECartController {
                                    : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteCart(@PathVariable String id) {
-        cartService.deleteCart(id);
+    // Remove a cart item by product ID and user ID
+    @DeleteMapping("/{productId}")
+    public ResponseEntity<Void> removeCartItem(@PathVariable String productId, @RequestParam String userId) {
+        cartService.removeCartItem(productId, userId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }
-
-    @GetMapping("/user/{userId}")
-    public ResponseEntity<List<ECart>> getCartsByUserId(@PathVariable long userId) {
-        List<ECart> userCarts = cartService.getCartsByUserId(userId);
-        return new ResponseEntity<>(userCarts, HttpStatus.OK);
     }
 }

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/eusers")
-@CrossOrigin({"http://localhost:4200","http://localhost:5000","http://localhost:3000"}) 
+@CrossOrigin({"http://localhost:4200", "http://localhost:5000", "http://localhost:3000"})
 public class EUserController {
 
     @Autowired
@@ -21,9 +21,9 @@ public class EUserController {
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<EUser> login(@RequestBody EUser loginRequest) {
-        EUser user = userService.login(loginRequest.getEmail(), loginRequest.getPassword());
+    @GetMapping("/login/{username}")
+    public ResponseEntity<EUser> login(@PathVariable String username, @RequestParam String password) {
+        EUser user = userService.login(username, password);  // Check username and password
         return user != null ? new ResponseEntity<>(user, HttpStatus.OK)
                             : new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
     }

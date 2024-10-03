@@ -2,7 +2,6 @@ package com.example.FormProject.Services.ecart;
 
 import com.example.FormProject.Model.ECart;
 import com.example.FormProject.Repository.ECartRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,13 +15,18 @@ public class ECartServiceImpl implements ECartService {
     private ECartRepository cartRepository;
 
     @Override
-    public ECart createCart(ECart cart) {
+    public ECart addToCart(ECart cart) {
         return cartRepository.save(cart);
     }
 
     @Override
     public List<ECart> getAllCarts() {
         return cartRepository.findAll();
+    }
+
+    @Override
+    public List<ECart> getCartsByUserId(String userId) {
+        return cartRepository.findByUserId(userId);
     }
 
     @Override
@@ -36,17 +40,18 @@ public class ECartServiceImpl implements ECartService {
             cart.setId(id);
             return cartRepository.save(cart);
         } else {
-            return null; // Or throw an exception
+            return null;
         }
+    }
+
+    // Delete cart item by product ID and user ID
+    @Override
+    public void removeCartItem(String productId, String userId) {
+        cartRepository.deleteByProductIdAndUserId(productId, userId);
     }
 
     @Override
     public void deleteCart(String id) {
         cartRepository.deleteById(id);
-    }
-
-    @Override
-    public List<ECart> getCartsByUserId(long userId) {
-        return cartRepository.findByUserId(userId);
     }
 }

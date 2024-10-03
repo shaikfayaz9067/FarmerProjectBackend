@@ -15,11 +15,11 @@ public class EUserService {
         return userRepository.save(user);
     }
 
-    public EUser login(String email, String password) {
-        EUser user = userRepository.findByEmail(email);
+    public EUser login(String username, String password) {
+        EUser user = userRepository.findByUsername(username); // Fetch user by username
         if (user != null && user.getPassword().equals(password)) {
             return user;
         }
-        return null;
+        return null;  // Return null if username or password is incorrect
     }
 }

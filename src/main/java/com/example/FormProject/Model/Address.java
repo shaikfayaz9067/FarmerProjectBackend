@@ -9,7 +9,5 @@ public class Address {
     private String city;
     private String townOrVillage;
     private String houseNumber;
-    private int pincode;
-
-    
+    private int pincode;  
 }
