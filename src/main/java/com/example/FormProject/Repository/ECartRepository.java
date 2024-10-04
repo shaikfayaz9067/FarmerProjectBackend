@@ -9,5 +9,7 @@ import java.util.List;
 @Repository
 public interface ECartRepository extends MongoRepository<ECart, String> {
     List<ECart> findByUserId(String userId); // Custom method to find cart items by user ID
+
     void deleteByProductIdAndUserId(String productId, String userId);
+    void deleteByUserId(String userId);
 }

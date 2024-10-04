@@ -15,4 +15,6 @@ public interface ECartService {
     void deleteCart(String id);
 
     public void removeCartItem(String productId, String userId);
+
+    public void deleteCartItemsByUserId(String userId);
 }

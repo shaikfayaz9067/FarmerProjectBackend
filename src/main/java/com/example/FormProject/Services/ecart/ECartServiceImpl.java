@@ -54,4 +54,10 @@ public class ECartServiceImpl implements ECartService {
     public void deleteCart(String id) {
         cartRepository.deleteById(id);
     }
+
+    @Override
+        public void deleteCartItemsByUserId(String userId) {
+        cartRepository.deleteByUserId(userId);
+    }
+
 }

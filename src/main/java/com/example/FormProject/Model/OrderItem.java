@@ -4,7 +4,8 @@ import lombok.Data;
 
 @Data
 public class OrderItem {
-    private long productId; // Assuming productId is long
+    private String productId; // Changed to String to match frontend
     private int quantity;
-    private double price;
+    private double price; // price as a double
 }
+

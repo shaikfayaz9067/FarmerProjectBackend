@@ -62,4 +62,10 @@ public class ECartController {
         cartService.removeCartItem(productId, userId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    @DeleteMapping
+    public ResponseEntity<Void> deleteCartItems(@RequestParam String userId) {
+        cartService.deleteCartItemsByUserId(userId);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }
